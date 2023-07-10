@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@/css/nodeDimming.css" />
+    </stylesheets>
+    <top>
+        <GridPane vgap="5.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="NEVER" prefWidth="300.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                <ColumnConstraints halignment="RIGHT" hgrow="NEVER" prefWidth="200.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                <RowConstraints valignment="CENTER" vgrow="NEVER" />
+            </rowConstraints>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Label fx:id="welcomeLabel" text="Welcome label" />
+            <ButtonBar GridPane.columnIndex="3" GridPane.columnSpan="2">
+                <buttons>
+                    <Button fx:id="changeButton" cancelButton="true" mnemonicParsing="false" onAction="#changeCredentials" styleClass="nodeColor" text="Change name or password" />
+                    <Button fx:id="logoutButton" maxWidth="70.0" mnemonicParsing="false" onAction="#logoutUser" text="Logout" />
+                </buttons>
+            </ButtonBar>
+            <Separator prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="1" />
+            <Label text="Cases you were a part of:" GridPane.columnSpan="4" GridPane.rowIndex="2" />
+            <Separator orientation="VERTICAL" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Search for:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets right="5.0" />
+                </GridPane.margin>
+            </Label>
+            <TextField fx:id="nameField" promptText="Name (type &quot;getAll()&quot; for all users)" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ButtonBar GridPane.columnIndex="4" GridPane.rowIndex="2">
+                <buttons>
+                    <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchUsers" text="Search" />
+                </buttons>
+            </ButtonBar>
+        </GridPane>
+    </top>
+    <center>
+        <TableView fx:id="caseTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="titleColumn" prefWidth="200.0" text="Title" />
+                <TableColumn fx:id="uinColumn" prefWidth="100.0" text="UIN" />
+                <TableColumn fx:id="judgeColumn" prefWidth="200.0" text="Judge" />
+                <TableColumn fx:id="defendantColumn" prefWidth="200.0" text="Defendant" />
+                <TableColumn fx:id="lawyerColumn" prefWidth="200.0" text="Lawyer" />
+                <TableColumn fx:id="prosecutorColumn" prefWidth="150.0" text="Prosecutor" />
+                <TableColumn fx:id="verdictColumn" prefWidth="100.0" text="Verdict" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <GridPane hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="NEVER" />
+                <ColumnConstraints halignment="CENTER" hgrow="NEVER" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                <ColumnConstraints halignment="RIGHT" hgrow="NEVER" prefWidth="75.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints valignment="CENTER" vgrow="NEVER" />
+            </rowConstraints>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Button fx:id="caseButton" mnemonicParsing="false" onAction="#addOrEditCases" styleClass="nodeColor" text="Add or edit cases" />
+            <Label text="Enter ID of case which you wish to delete:" GridPane.columnIndex="3" />
+            <TextField fx:id="idField" promptText="Case ID" styleClass="nodeColor" GridPane.columnIndex="4" />
+            <Button fx:id="confirmationButton" mnemonicParsing="false" onAction="#deleteCase" styleClass="nodeColor" text="Confirm" GridPane.columnIndex="5" />
+        </GridPane>
+    </bottom>
+</BorderPane>

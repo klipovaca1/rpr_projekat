@@ -1,0 +1,7 @@
+.nodeColor:disabled {
+    -fx-background-color: lightgray;
+}
+.nodeColor:readonly {
+    -fx-background-color: lightgray;
+    -fx-cursor: default;
+}

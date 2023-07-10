@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@/css/nodeDimming.css" />
+    </stylesheets>
+    <top>
+        <GridPane hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Label text="Search result:" />
+        </GridPane>
+    </top>
+    <center>
+        <TableView fx:id="userTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Name" />
+                <TableColumn fx:id="userTypeColumn" prefWidth="100.0" text="User type" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <GridPane hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="NEVER" />
+                <ColumnConstraints halignment="LEFT" hgrow="NEVER" prefWidth="75.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="NEVER" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints valignment="CENTER" vgrow="NEVER" />
+            </rowConstraints>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Label text="Delete user:" />
+            <TextField fx:id="idField" promptText="User ID" styleClass="nodeColor" GridPane.columnIndex="1" />
+            <Button fx:id="confirmationButton" defaultButton="true" mnemonicParsing="false" onAction="#deleteUser" styleClass="nodeColor" text="Confirm" GridPane.columnIndex="2" />
+            <Button fx:id="closeButton" cancelButton="true" mnemonicParsing="false" onAction="#closeSearch" prefWidth="60.0" text="Close" GridPane.columnIndex="4" />
+        </GridPane>
+    </bottom>
+</BorderPane>

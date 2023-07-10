@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@/css/nodeDimming.css" />
+    </stylesheets>
+    <columnConstraints>
+        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+        <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="180.0" minWidth="180.0" prefWidth="180.0" />
+        <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+        <ColumnConstraints />
+      <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+      <RowConstraints valignment="CENTER" vgrow="NEVER" />
+      <RowConstraints valignment="CENTER" vgrow="NEVER" />
+      <RowConstraints valignment="CENTER" vgrow="NEVER" />
+        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+    </rowConstraints>
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+    <GridPane hgap="15.0" GridPane.columnSpan="2" GridPane.rowIndex="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="NEVER" />
+            <ColumnConstraints halignment="CENTER" hgrow="NEVER" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+        </rowConstraints>
+        <GridPane.margin>
+            <Insets left="5.0" top="10.0" />
+        </GridPane.margin>
+        <RadioButton fx:id="addButton" mnemonicParsing="false" onAction="#addRadioButton" text="Add case">
+           <toggleGroup>
+               <ToggleGroup fx:id="caseGroup" />
+           </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="editButton" mnemonicParsing="false" onAction="#editRadioButton" text="Edit case" toggleGroup="$caseGroup" GridPane.columnIndex="1" />
+    </GridPane>
+    <Label text="Case ID:" GridPane.columnIndex="1" />
+    <Label text="Title:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <Label text="UIN:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <Label text="Judge:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    <Label text="Defendant:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <Label text="Lawyer:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    <Label text="Prosecutor:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+    <Label text="Verdict:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+    <TextField fx:id="idField" styleClass="nodeColor" GridPane.columnIndex="2" />
+    <TextField fx:id="titleField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    <TextField fx:id="uinField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    <ComboBox fx:id="judgeBox" editable="true" maxWidth="1.7976931348623157E308" styleClass="nodeColor" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+    <ComboBox fx:id="defendantBox" editable="true" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+    <ComboBox fx:id="lawyerBox" editable="true" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+    <ComboBox fx:id="prosecutorBox" editable="true" maxWidth="1.7976931348623157E308" styleClass="nodeColor" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+    <ChoiceBox fx:id="verdictField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="7">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Undecided" />
+                <String fx:value="Dismissal" />
+                <String fx:value="Withdrawal" />
+                <String fx:value="Diversion" />
+                <String fx:value="Guilty" />
+                <String fx:value="Guilty plea" />
+                <String fx:value="Not guilty" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+    <ButtonBar GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+        <buttons>
+            <Button fx:id="confirmButton" defaultButton="true" mnemonicParsing="false" onAction="#confirmCase" text="Confirm" />
+            <Button fx:id="closeButton" cancelButton="true" mnemonicParsing="false" onAction="#closeScreen" text="Close" />
+        </buttons>
+        <GridPane.margin>
+            <Insets top="10.0" />
+        </GridPane.margin>
+    </ButtonBar>
+   <Button fx:id="judgeButton" mnemonicParsing="false" onAction="#addUser" prefWidth="50.0" text="Add" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+   <Button fx:id="defendantButton" mnemonicParsing="false" onAction="#addUser" prefWidth="50.0" text="Add" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+   <Button fx:id="lawyerButton" mnemonicParsing="false" onAction="#addUser" prefWidth="50.0" text="Add" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+   <Button fx:id="prosecutorButton" mnemonicParsing="false" onAction="#addUser" prefWidth="50.0" text="Add" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+</GridPane>
